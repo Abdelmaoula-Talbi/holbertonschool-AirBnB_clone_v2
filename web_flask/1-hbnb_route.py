@@ -16,7 +16,7 @@ def hello():
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
     """function to return the message to display in the browser on the /hbnb page"""
-    retunr "HBNB"
+    return "HBNB"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
