@@ -22,7 +22,7 @@ def hbnb():
 
 @app.route("/c/<text>", strict_slashes=False)
 def c(text):
-    """function to display the message on the /c pagedsfjksdmqlfkjsdqlfkjdsqmfljsdmf:lmksdjmfjqsdlfj"""
+    """function to display the message on the /c page"""
     return "C" + " " + text.replace("_", " ")
 
 
