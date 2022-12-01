@@ -25,6 +25,5 @@ def c(text):
     """function"""
     return "C" + " " + text.replace("_", " ")
 
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
