@@ -13,7 +13,7 @@ def hello():
     """function to return the message to display in the user's browser"""
     return "Hello HBNB!"
 
-@app.route("/hbnb", strict_flashes=False)
+@app.route("/hbnb", strict_slashes=False)
 def hbnb():
     """function to return the message to display in the browser on the /hbnb page"""
     retunr "HBNB"
