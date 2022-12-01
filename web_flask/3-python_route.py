@@ -26,11 +26,11 @@ def c(text):
     return "C" + " " + text.replace("_", " ")
 
 
-@app.route("/python")
+#@app.route("/python")
 @app.route("/python/<text>", strict_slashes=False)
 def python(text="is cool"):
     """function to display message on the /python page"""
-    return "Python" + " " + "text.replace("_", " ")
+    return "Python" + " " + text.replace("_", " ")
 
 
 if __name__ == "__main__":
