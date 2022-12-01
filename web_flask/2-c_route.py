@@ -22,8 +22,9 @@ def hbnb():
 
 @app.route("/c/<text>", strict_slashes=False)
 def c(text):
-    """function"""
+    """function to display the message on the /c pagedsfjksdmqlfkjsdqlfkjdsqmfljsdmf:lmksdjmfjqsdlfj"""
     return "C" + " " + text.replace("_", " ")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
