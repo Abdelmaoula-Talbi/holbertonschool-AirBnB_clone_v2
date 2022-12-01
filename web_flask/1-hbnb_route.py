@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""script that starts a Flask web app
+"""
+A module that representes a script that  starts a Flask web application
 """
 
 from flask import Flask
@@ -7,15 +8,15 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/', strict_slashes=False)
+@app.route("/", strict_slashes=False)
 def hello():
+    """function to return the message to display in the user's browser"""
     return "Hello HBNB!"
 
-
-@app.route('/hbnb', strict_slashes=False)
+@app.route("/hbnb", strict_flashes=False)
 def hbnb():
-    return "HBNB"
+    """function to return the message to display in the browser on the /hbnb page"""
+    retunr "HBNB"
 
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='5000')
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
