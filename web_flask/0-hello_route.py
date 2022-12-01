@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 A module that representes a script that  starts a Flask web application
 """
