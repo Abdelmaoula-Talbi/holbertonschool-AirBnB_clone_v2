@@ -26,6 +26,7 @@ def c(text):
     return "C" + " " + text.replace("_", " ")
 
 
+@app.route("/python")
 @app.route("/python/<text>", strict_slashes=False)
 def python(text="is cool"):
     """function to display message on the /python page"""
