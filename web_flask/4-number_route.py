@@ -34,8 +34,8 @@ def python(text="is cool"):
     return "Python" + " " + text.replace("_", " ")
 
 
-@app.route("/number/<n>", strict_slashes=False)
-def number(int n):
+@app.route("/number/<int:n>", strict_slashes=False)
+def number(n):
     """display the message on the /number page"""
     return "{} is a number".format(n)
 
