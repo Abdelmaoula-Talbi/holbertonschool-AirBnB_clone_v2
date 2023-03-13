@@ -125,10 +125,10 @@ class HBNBCommand(cmd.Cmd):
             return
         new_instance = HBNBCommand.classes[args]()
         for key, value in kwargs.iteritems():
-            if key in new_instance.__dict__:
-                setattr(new_instance, key, value)
-        storage.new(new_instance)
-        storage.save()
+            if hasattr(new_instance, key):
+                setattr(new_instance, key, value.replace("_", " "))
+        #storage.new(new_instance)
+        new_instance.save()
         print(new_instance.id)
 
     def help_create(self):
