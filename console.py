@@ -126,7 +126,7 @@ class HBNBCommand(cmd.Cmd):
         new_instance = HBNBCommand.classes[args]()
         for key, value in kwargs.iteritems():
             if hasattr(new_instance, key):
-                setattr(new_instance, key, value.replace("_", " "))
+                setattr(new_instance, key, eval(value.replace("_", " ")))
         #storage.new(new_instance)
         new_instance.save()
         print(new_instance.id)
