@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
         elif args not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-        new_instance = HBNBCommand.classes[args]()
+        new_instance = eval(HBNBCommand.classes[args])()
         for key, value in kwargs.iteritems():
             if hasattr(new_instance, key):
                 setattr(new_instance, key, eval(value.replace("_", " ")))
