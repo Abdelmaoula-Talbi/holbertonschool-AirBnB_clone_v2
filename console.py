@@ -125,12 +125,11 @@ class HBNBCommand(cmd.Cmd):
         else:
             new_instance = eval(args[0])()
             for key_value in args[1:]:
-                key_value.split("=")
+                key_value = key_value.split("=")
                 key = key_value[0]
                 value =  key_value[1]
-                if hasattr(new_instance, key):
-                    value.replace("_", " ")
-                    setattr(new_instance, key, value)
+                value.replace("_", " ")
+                setattr(new_instance, key, value)
             new_instance.save()
             print(new_instance.id)
             
