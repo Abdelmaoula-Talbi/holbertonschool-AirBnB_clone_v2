@@ -4,6 +4,7 @@ import uuid
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
+import models
 
 
 Base = declarative_base()
@@ -26,7 +27,7 @@ class BaseModel:
             for key, value in kwargs.iteritems():
                 if key == updated_at or key == created_at:
                 value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                if key != "__class__":
+                elif key != "__class__":
                     setattr(self, key, value)
 
     def __str__(self):
