@@ -25,18 +25,27 @@ class DBStorage:
             getenv('HBNB_MYSQL_HOST'),
             getenv('HBNB_MYSQL_DB')),
             pool_pre_ping=True)
+
         if getenv('HBNB_ENV') == 'test':
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
         """Returns the list of objects of one type of class"""
-        if cls is not None:
-            new_dict = {}
-            for key, value in self.__objects.items():
-                if isinstance(value, cls):
-                    new_dict[key] = value
-            return new_dict
-        return FileStorage.__objects
+        Base.metadata.create_all(self.__engine)
+        self.__session = Session(self.__engine)
+        if cls:
+            cls = eval(cls.__name__)
+            myquery = self.__session.query(cls).all()
+        else:
+            my_objs = [Amenity, City, Place, Review, State, User]
+            myquery = []
+            for item in my_objs:
+                myquery.extend(self.__session.query(item)).all()
+        
+        object_dict = dict()
+        for obj in myquery:
+            object_dict["{}.{}".format(type(obj).__name__, obj.id)] = obj
+        return object_dict
 
     def new(self, obj):
         """Adds new object to current database session"""
