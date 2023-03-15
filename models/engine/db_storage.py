@@ -19,15 +19,12 @@ class DBStorage:
 
     def __init__(self):
         """initiate the dbstorage"""
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(
-            getenv('HBNB_MYSQL_USER'),
-            getenv('HBNB_MYSQL_PWD'),
-            getenv('HBNB_MYSQL_HOST'),
-            getenv('HBNB_MYSQL_DB')),
-            pool_pre_ping=True)
+        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(getenv('HBNB_MYSQL_USER'), getenv('HBNB_MYSQL_PWD'), getenv('HBNB_MYSQL_HOST'), getenv('HBNB_MYSQL_DB')), pool_pre_ping=True)
 
         if getenv('HBNB_ENV') == 'test':
             Base.metadata.drop_all(self.__engine)
+
+        self.reload()
 
     def all(self, cls=None):
         """Returns the list of objects of one type of class"""
