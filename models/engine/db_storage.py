@@ -9,7 +9,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 from models.user import User
-from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm import Session, sessionmaker, scoped_session
 
 
 class DBStorage:
