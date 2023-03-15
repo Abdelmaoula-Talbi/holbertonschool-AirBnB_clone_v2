@@ -20,7 +20,7 @@ class State(BaseModel, Base):
             """getter attribute cities that returns the list of City instances
             (It will be the FileStorage relationship between State and City)"""
             all_cities = []
-            for key, value in storage.all(City).items():
+            for key, value in models.storage.all(City).items():
                 if self.id == value.state_id:
                     all_cities.append(value)
             return all_cities
