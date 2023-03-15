@@ -128,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in kwargs.iteritems():
                 value =  value.replace("_", " ")
                 setattr(new_instance, key, value)
-            #new_instance.save()
+            new_instance.save()
             print(new_instance.id)
             
 
