@@ -18,7 +18,7 @@ def cities_of_state():
         for city in state.cities:
             state_cities.append(city)
     return render_template("8-cities_by_states.html",
-                            states=states, state_cities=state_cities)
+                        states=states, state_cities=state_cities)
 
 
 @app.teardown_appcontext
