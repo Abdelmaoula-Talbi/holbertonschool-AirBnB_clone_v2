@@ -128,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
                 key_value = key_value.split("=")
                 key = key_value[0]
                 value = key_value[1].replace("_", " ")
-                setattr(new_instance, key, value)
+                setattr(new_instance, key, eval(value))
             new_instance.save()
             print(new_instance.id)
             
