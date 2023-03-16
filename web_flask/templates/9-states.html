@@ -10,7 +10,7 @@
     {% if id_not_found == True %}
     <h1>Not found!</h1>
     {% else %}
-    <h1>State:</h1>
+    <h1>State: {{ state.name }}</h1>
     <h3>Cities:</h3>
     <ul>
         {% for city in state.cities|sort(attribute='name') %}

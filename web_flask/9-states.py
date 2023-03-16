@@ -21,7 +21,7 @@ def cities_by_stateid(id):
     states = storage.all(State).values()
     for state in states:
         if state.id == id:
-            return render_template("9-states.html", state_cities=state.cities)
+            return render_template("9-states.html", state=state, state_cities=state.cities)
         else:
             return render_template("9-states.html", id_not_found = True)
 
