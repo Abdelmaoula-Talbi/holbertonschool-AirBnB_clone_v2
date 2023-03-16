@@ -23,8 +23,7 @@ class DBStorage:
             getenv('HBNB_MYSQL_USER'),
             getenv('HBNB_MYSQL_PWD'),
             getenv('HBNB_MYSQL_HOST'),
-            getenv('HBNB_MYSQL_DB')),
-        pool_pre_ping=True)
+            getenv('HBNB_MYSQL_DB')), pool_pre_ping=True)
 
         self.reload()
 
