@@ -15,15 +15,17 @@ def all_states():
     states = storage.all(State).values()
     return render_template("7-states_list.html", states=states)
 
+
 @app.route("/states/<id>", strict_slashes=False)
 def cities_by_stateid(id):
     """function to display html page of list of cities based on the state id"""
     states = storage.all(State).values()
     for state in states:
         if state.id == id:
-            return render_template("9-states.html", state=state, state_cities=state.cities)
+            return render_template("9-states.html", state=state,
+                                   state_cities=state.cities)
         else:
-            return render_template("9-states.html", id_not_found = True)
+            return render_template("9-states.html", id_not_found=True)
 
 
 @app.teardown_appcontext
