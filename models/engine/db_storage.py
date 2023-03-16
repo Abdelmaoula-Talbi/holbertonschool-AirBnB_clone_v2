@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from os import getenv
 from models.base_model import BaseModel, Base
 from models.amenity import Amenity
-from models.city import  City
+from models.city import City
 from models.place import Place
 from models.review import Review
 from models.state import State
@@ -19,7 +19,12 @@ class DBStorage:
 
     def __init__(self):
         """initiate the dbstorage"""
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(getenv('HBNB_MYSQL_USER'), getenv('HBNB_MYSQL_PWD'), getenv('HBNB_MYSQL_HOST'), getenv('HBNB_MYSQL_DB')), pool_pre_ping=True)
+        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(
+            getenv('HBNB_MYSQL_USER'),
+            getenv('HBNB_MYSQL_PWD'),
+            getenv('HBNB_MYSQL_HOST'),
+            getenv('HBNB_MYSQL_DB')),
+        pool_pre_ping=True)
 
         self.reload()
 
@@ -38,7 +43,7 @@ class DBStorage:
             myquery = []
             for item in my_objs:
                 myquery.extend(self.__session.query(item)).all()
-        
+
         object_dict = dict()
         for obj in myquery:
             object_dict["{}.{}".format(type(obj).__name__, obj.id)] = obj
@@ -64,7 +69,6 @@ class DBStorage:
         Base.metadata.create_all(self.__engine)
         session_s = sessionmaker(bind=self.__engine, expire_on_commit=False)
         self.__session = scoped_session(session_s)
-    
 
     def close(self):
         """close() method on the class Session"""
